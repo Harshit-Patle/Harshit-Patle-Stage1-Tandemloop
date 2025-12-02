@@ -7,14 +7,17 @@ public class Problem4 {
         
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("Enter count of numbers: ");
-        int n = sc.nextInt();
+        System.out.println("Enter the numbers:");
+        String inputLine = sc.nextLine();
         
-        int[] numbers = new int[n];
+        String cleanInput = inputLine.replace("[", "").replace("]", "");
         
-        System.out.println("Enter the numbers: ");
-        for(int i = 0; i < n; i++) {
-            numbers[i] = sc.nextInt();
+        String[] strNumbers = cleanInput.split(",");
+        
+        int[] numbers = new int[strNumbers.length];
+        
+        for(int i = 0; i < strNumbers.length; i++) {
+            numbers[i] = Integer.parseInt(strNumbers[i].trim());
         }
         
         HashMap<Integer, Integer> counts = new HashMap<>();
